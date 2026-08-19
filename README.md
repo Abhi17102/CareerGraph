@@ -358,7 +358,7 @@ CareerGraph/
 
 ```bash
 
-git clone <your-repository-url>
+git clone (https://github.com/Abhi17102/CareerGraph.git)
 
 cd CareerGraph
 
