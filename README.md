@@ -219,67 +219,45 @@ For CareerGraph, the graph model is useful because the main questions are relati
 
 
 
-\## Graph Model
+## Graph Data Model
 
-
-
-The application models relationships such as:
-
-
+CareerGraph uses the following graph model:
 
 ```text
+                 REQUIRES
+        ┌─────────────────────┐
+        │                     ▼
+     (Role)                (Skill)
+                              │
+                              │ IMPLEMENTED_BY
+                              ▼
+                        (Technology)
 
-(Role)
+     (Project)
+         │
+         │ DEMONSTRATES
+         ▼
+       (Skill)
 
-&#x20;  │
+Nodes
+Role
+name
+description
+Skill
+name
+category
+Technology
+name
+type
+Project
+name
+description
+Relationships
+Role -[:REQUIRES]-> Skill
+Skill -[:IMPLEMENTED_BY]-> Technology
+Project -[:DEMONSTRATES]-> Skill
 
-&#x20;  │ REQUIRES
-
-&#x20;  ▼
-
-(Skill)
-
-&#x20;  │
-
-&#x20;  │ IMPLEMENTED\_BY
-
-&#x20;  ▼
-
-(Technology)
-
-
-
-
-
-(Project)
-
-&#x20;  │
-
-&#x20;  │ DEMONSTRATES
-
-&#x20;  ▼
-
-(Skill)
-
-```
-
-
-
-A role can require multiple skills.
-
-
-
-A skill can be implemented using multiple technologies.
-
-
-
-A project can demonstrate multiple skills.
-
-
-
-Projects are surfaced when they demonstrate at least three skills required by the selected role.
-
-
+The application uses these relationships to perform multi-hop graph traversals and identify projects that demonstrate multiple skills required by a selected career.
 
 \## API Endpoints
 
@@ -537,6 +515,13 @@ Possible future improvements include:
 
 \* Deployment with a hosted Neo4j database
 
+\## Screenshots
+
+<img width="1919" height="913" alt="Screenshot 2026-08-19 220428" src="https://github.com/user-attachments/assets/57fa2c5d-118b-4c78-afaa-dd8db3f0176f" />
+<img width="1917" height="1020" alt="Screenshot 2026-08-19 220409" src="https://github.com/user-attachments/assets/d8a7d4df-c39b-4f07-8d77-1ecdd703a56f" />
+<img width="1919" height="917" alt="Screenshot 2026-08-19 220441" src="https://github.com/user-attachments/assets/fa0dca17-9d4e-42a5-8e43-0a1345456866" />
+<img width="1919" height="914" alt="Screenshot 2026-08-19 220528" src="https://github.com/user-attachments/assets/e4bc5f94-ad9d-446a-b22d-fc78d41ca270" />
+<img width="1919" height="913" alt="Screenshot 2026-08-19 220455" src="https://github.com/user-attachments/assets/dd51c4e2-ce00-4766-b316-70be2a5851bb" />
 
 
 \## License
