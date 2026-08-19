@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerGraph</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            Career<span>Graph</span>
+        </div>
+
+        <div class="nav-label">
+            Explore Careers
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="eyebrow">GRAPH-POWERED CAREER EXPLORATION</p>
+
+            <h1>
+                Discover the skills,
+                <span>technologies</span>
+                and projects behind your career.
+            </h1>
+
+            <p class="hero-description">
+                Explore how careers connect to skills, technologies,
+                and real-world projects through a graph database.
+            </p>
+        </section>
+
+
+        <section class="role-selector">
+
+            <label for="roleSelect">
+                Choose a career role
+            </label>
+
+            <select id="roleSelect">
+                <option value="">
+                    Loading roles...
+                </option>
+            </select>
+
+        </section>
+
+
+        <div id="errorMessage" class="error hidden"></div>
+
+
+        <section id="careerContent" class="career-content hidden">
+
+            <div class="role-header">
+                <p class="section-label">CAREER ROLE</p>
+
+                <h2 id="roleName"></h2>
+
+                <p id="roleDescription"></p>
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">REQUIRED SKILLS</p>
+                        <h3>Core skills</h3>
+                    </div>
+
+                    <span id="skillCount" class="count"></span>
+                </div>
+
+                <div id="skillsContainer" class="tag-container"></div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">TECHNOLOGIES</p>
+                        <h3>Tools you may work with</h3>
+                    </div>
+                </div>
+
+                <div id="technologyContainer" class="technology-grid"></div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">PROJECTS</p>
+                        <h3>Projects that demonstrate these skills</h3>
+                    </div>
+                </div>
+
+                <div id="projectContainer" class="project-grid"></div>
+
+            </div>
+            
+            <div class="section graph-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">GRAPH EXPLORER</p>
+                        <h3>Explore the career connections</h3>
+                    </div>
+
+                    <span class="count">Live graph traversal</span>
+                </div>
+
+                <p class="graph-description">
+                    Follow how this career connects to its required skills,
+                    technologies, and matching projects.
+                </p>
+
+                <div class="graph-legend">
+
+                    <div class="legend-item">
+                        <span class="legend-dot role-dot"></span>
+                        Role
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot skill-dot"></span>
+                        Skill
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot technology-dot"></span>
+                        Technology
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot project-dot"></span>
+                        Project
+                    </div>
+
+                </div>
+
+                <div id="career-graph"></div>
+
+            </div>
+
+        </section>
+
+
+        <section id="emptyState" class="empty-state">
+
+            <div class="empty-icon">⌘</div>
+
+            <h3>Select a career to explore</h3>
+
+            <p>
+                Choose a role above to see its skills,
+                technologies, and related projects.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>CareerGraph · Powered by CognoDB</p>
+    </footer>
+
+
+    <script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
