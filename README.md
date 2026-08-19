@@ -58,7 +58,30 @@ Role → Skills ← Projects
 
 This allows users to explore career paths through relationships rather than isolated information.
 
+## Why a Graph Database?
 
+CareerGraph focuses on relationships between career roles, skills, technologies, and projects.
+
+A relational database could store these entities in separate tables, but exploring their relationships would require multiple joins across tables.
+
+A graph database makes these connections first-class relationships.
+
+For example:
+
+Role → REQUIRES → Skill → IMPLEMENTED_BY → Technology
+
+and:
+
+Project → DEMONSTRATES → Skill ← REQUIRES ← Role
+
+This makes multi-hop relationship queries and discovering connected career information more natural and easier to extend.
+
+For CareerGraph, the graph model is useful because the main questions are relationship-oriented, such as:
+
+- What skills does a career require?
+- Which technologies implement those skills?
+- Which projects demonstrate multiple skills required by a role?
+- How are a career, its skills, technologies, and projects connected?
 
 \## Features
 
